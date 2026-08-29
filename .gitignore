@@ -1,0 +1,12 @@
+# Dự án khác (đã có repo riêng: bia3334/mot-buoi-toi)
+deploy-omakase/
+thiep-omakase-tiger.html
+
+# File tạm sinh ra khi chụp màn hình kiểm tra
+scratch/*.png
+scratch/dt-*.html
+scratch/chup-*.html
+
+node_modules/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thiệp mời Lễ Tốt nghiệp — Gửi chị Thy</title>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     ✏️  CÁCH SỬA THIỆP NÀY (trang riêng của chị Thy)
+     · Chủ đề: tiệm tạp hoá hồng dâu, mấy bạn thú nhỏ và tờ hoá đơn.
+     · Mọi câu chữ nằm thẳng trong phần nội dung bên dưới — thấy chữ nào
+       muốn đổi thì sửa ngay tại chỗ chữ đó, không phải tìm đâu xa.
+     · Ngày sinh mở khoá: sửa NGAY_SINH trong khối CÀI ĐẶT ngay dưới.
+     · Lá thư riêng: tìm chữ "✉️ VIẾT THƯ Ở ĐÂY" ở gần cuối nội dung.
+     · Ngày giờ, địa điểm buổi lễ: nằm trong mục "HOÁ ĐƠN".
+     · Cuối file có khối màu sắc/bố cục, rồi tới khối font chữ rất dài —
+       khối font ghi rõ "ĐỪNG SỬA", xin đừng đụng vào.
+     ════════════════════════════════════════════════════════════════ -->
+
+<script>
+/* ── CÀI ĐẶT ─────────────────────────────────────────────── */
+const NGAY_SINH = '16/12/2000';   // mã mở khoá (dd/mm/yyyy)
+const KEO_ROI   = true;           // kẹo và dấu chân mèo rơi nhè nhẹ lúc mở thiệp
+
+// Lời báo lỗi ở màn khoá
+const LOI_CHUA_DU  = 'Bạn nhập chưa đủ ngày sinh (dd/mm/yyyy) nhé.';
+const LOI_KHONG_CO = 'Ngày này có vẻ chưa đúng, bạn xem lại giúp nhé.';
+const LOI_SAI      = 'Cửa tiệm chưa chịu mở. Bạn thử lại đúng ngày sinh của mình nhé!';
+/* ───────────────────────────────────────────────────────── */
+</script>
+
+<!-- ══ MÀN KHOÁ — lời lẽ trung tính, chưa xưng hô riêng ══ -->
+<div id="gate">
+  <div class="khoa-the" id="gate-doc">
+
+    <svg class="khoa-tiem" viewBox="0 0 260 190" role="img" aria-label="Cửa tiệm tạp hoá còn đóng, mái hiên sọc hồng, một chú mèo ngồi chờ trước cửa">
+      <defs>
+        <clipPath id="gateHien"><path d="M22 96 {{ARCS_GATE}} V70 H22 Z"/></clipPath>
+      </defs>
+      <rect class="tuong" x="30" y="30" width="200" height="140" rx="12"/>
+      <rect class="bien" x="66" y="22" width="128" height="30" rx="9"/>
+      <text class="bien-chu" x="130" y="43" text-anchor="middle">TẠP HOÁ</text>
+      <path class="hien-nen" d="M22 96 {{ARCS_GATE}} V70 H22 Z"/>
+      <g class="hien-soc" clip-path="url(#gateHien)">{{SOC_GATE}}</g>
+      <g class="cuon-boc">
+        <rect class="cuon" x="52" y="104" width="156" height="66" rx="4"/>
+        <path class="cuon-net" d="M52 114 h156 M52 124 h156 M52 134 h156 M52 144 h156 M52 154 h156 M52 164 h156"/>
+      </g>
+      <g class="bang-nghi">
+        <path class="bang-day" d="M116 104 v9"/>
+        <rect class="bang-the" x="86" y="113" width="60" height="21" rx="6"/>
+        <text class="bang-chu" x="116" y="127" text-anchor="middle">ĐANG NGHỈ</text>
+      </g>
+      <g transform="translate(186 118) scale(.6)">{{THU_MEO}}</g>
+      <path class="via-he" d="M8 170 h244"/>
+    </svg>
+
+    <p class="gate-kicker">Tiệm tạp hoá · Melbourne 2026</p>
+    <h1 class="gate-title">Thiệp mời<br>lễ tốt nghiệp</h1>
+    <p class="gate-huong-dan">Tấm thiệp này chỉ mở với đúng người nhận.<br>Bạn nhập ngày sinh của mình để kéo cửa tiệm lên nhé.</p>
+
+    <form id="gate-form" novalidate>
+      <label class="gate-label" for="dob">Ngày sinh của bạn</label>
+      <input id="dob" inputmode="numeric" autocomplete="off" placeholder="dd/mm/yyyy" maxlength="10">
+      <button type="submit">Kéo cửa lên</button>
+    </form>
+
+    <!-- Chế độ "thư dành riêng" — chỉ hiện khi vào từ letter.html với ?m= đúng -->
+    <div id="letter-mode" hidden>
+      <p class="lm-loi">Thư này dành riêng cho <strong>chị Thy</strong></p>
+      <button type="button" id="lm-open">Mở xem</button>
+    </div>
+
+    <p id="gate-err" role="alert" aria-live="polite"></p>
+  </div>
+</div>
+
+<!-- ══ NỘI DUNG THIỆP — hiện sau khi mở khoá ══ -->
+<main id="invite" hidden>
+
+  <!-- ── MỞ ĐẦU · MẶT TIỀN TIỆM ─────────────────────────── -->
+  <header class="mo-dau">
+    <svg class="tiem-lon" viewBox="0 0 480 300" role="img" aria-label="Mặt tiền tiệm tạp hoá màu hồng: bảng hiệu Tạp hoá Thy, mái hiên sọc, kệ hàng sau ô cửa kính, mèo nằm bên bệ cửa và chú chó ngồi trước tiệm">
+      <defs>
+        <clipPath id="hienClip"><path d="M38 130 {{ARCS_HIEN}} V96 H38 Z"/></clipPath>
+      </defs>
+
+      <rect class="tuong" x="50" y="52" width="380" height="200" rx="14"/>
+      <rect class="bien" x="112" y="42" width="256" height="42" rx="12"/>
+      <text class="bien-chu bien-lon" x="240" y="72" text-anchor="middle">TẠP HOÁ THY</text>
+      <circle class="den" cx="136" cy="34" r="5"/>
+      <circle class="den den-2" cx="240" cy="30" r="5"/>
+      <circle class="den den-3" cx="344" cy="34" r="5"/>
+
+      <path class="hien-nen" d="M38 130 {{ARCS_HIEN}} V96 H38 Z"/>
+      <g class="hien-soc" clip-path="url(#hienClip)">{{SOC_HIEN}}</g>
+
+      <!-- ô cửa kính, bên trong là kệ hàng -->
+      <rect class="kinh" x="74" y="150" width="180" height="94" rx="8"/>
+      <path class="ke-go-nho" d="M82 182 h164 M82 214 h164"/>
+      <g class="hang-nho">
+        <rect x="92" y="164" width="14" height="18" rx="3"/><rect x="112" y="168" width="12" height="14" rx="3"/>
+        <circle cx="138" cy="174" r="8"/><rect x="154" y="162" width="16" height="20" rx="4"/>
+        <rect x="178" y="168" width="12" height="14" rx="3"/><circle cx="208" cy="174" r="8"/>
+        <rect x="224" y="164" width="14" height="18" rx="3"/>
+        <rect x="92" y="196" width="12" height="18" rx="3"/><circle cx="120" cy="206" r="8"/>
+        <rect x="136" y="194" width="16" height="20" rx="4"/><rect x="162" y="198" width="12" height="16" rx="3"/>
+        <circle cx="192" cy="206" r="8"/><rect x="208" y="196" width="14" height="18" rx="3"/>
+        <rect x="230" y="200" width="12" height="14" rx="3"/>
+      </g>
+
+      <!-- cửa ra vào + biển MỞ CỬA đung đưa -->
+      <rect class="cua" x="288" y="150" width="118" height="102" rx="8"/>
+      <rect class="cua-kinh" x="300" y="162" width="94" height="58" rx="6"/>
+      <circle class="tay-nam" cx="300" cy="234" r="5"/>
+      <g class="bien-mo">
+        <path class="bien-mo-day" d="M347 162 v10"/>
+        <rect class="bien-mo-the" x="317" y="172" width="60" height="24" rx="7"/>
+        <text class="bien-mo-chu" x="347" y="188" text-anchor="middle">MỞ CỬA</text>
+      </g>
+
+      <!-- mèo nằm bệ cửa sổ · chó ngồi ngoài · chim đậu trên bảng hiệu -->
+      <g transform="translate(228 190) scale(.56)">{{THU_MEO}}</g>
+      <g transform="translate(396 172) scale(.7)">{{THU_CHO}}</g>
+      <g transform="translate(56 28) scale(.4)">{{THU_CHIM}}</g>
+
+      <path class="via-he" d="M20 252 h440"/>
+      <g class="chau-cay">
+        <path class="chau" d="M42 252 h34 l-5 22 h-24 z"/>
+        <path class="la-cay" d="M59 250 q-16 -6 -14 -22 q16 2 14 22 M59 250 q16 -8 14 -26 q-16 4 -14 26"/>
+      </g>
+    </svg>
+
+    <div class="mo-dau-chu">
+      <p class="nhan">Tiệm tạp hoá Thy · Melbourne 2026</p>
+      <h1 class="tieu-de-lon">Gửi chị Thy</h1>
+      <p class="loi-mo">Tiệm của chị mở từ sớm tinh mơ tới tối mịt, bán đủ thứ trên đời.
+        Hôm nay em ghé mua một món chắc chị chưa nhập bao giờ — một lời mời.</p>
+    </div>
+    <p class="cuon-xuong"><span class="cx-mui" aria-hidden="true"></span>Cuộn xuống, em dẫn chị đi một vòng</p>
+  </header>
+
+  <!-- ── CẢNH 1 · KỆ HÀNG ────────────────────────────────── -->
+  <section class="canh reveal" aria-labelledby="tieu-de-1">
+    <div class="khung">
+      <div class="the">
+        <p class="nhan">Cảnh một</p>
+        <h2 id="tieu-de-1">Kệ nhà chị cái gì cũng có</h2>
+        <p class="dan">Thiếu muối có muối, thiếu pin có pin, nửa đêm thèm mì gói cũng có mì gói.
+          Thiếu người ngồi nghe than thở thì… cũng có luôn.
+          Em đứng ngắm một vòng, thấy còn đúng một ô trống trên kệ trên cùng.</p>
+
+        <div class="ke-hang">
+{{KE_HANG}}
+        </div>
+
+        <p class="chu-thich">Ô đó em xin phép đặt tạm tấm bằng vào — món này không bán,
+          ngày 15/10 chị ghé lấy giúp em.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CẢNH 2 · MỘT NGÀY CỦA CHỦ TIỆM ──────────────────── -->
+  <section class="canh reveal" aria-labelledby="tieu-de-2">
+    <div class="khung">
+      <div class="the">
+        <p class="nhan">Cảnh hai</p>
+        <h2 id="tieu-de-2">Một ngày hai ca, chưa nghe chị kêu mệt</h2>
+        <p class="dan">Sáng bán hàng, tối lên sổ. Người ta làm một nghề đã than trời,
+          chị làm hai nghề mà vẫn kịp nhắn hỏi em ăn cơm chưa.</p>
+
+        <ol class="dong-thoi-gian">
+{{MOC}}
+        </ol>
+
+        <div class="goc-ke-toan">
+          <svg class="may-tinh" viewBox="0 0 200 250" role="img" aria-label="Chiếc máy tính bỏ túi màu hồng, màn hình hiện ngày 15.10.2026, một chú mèo nằm ngủ trên máy">
+            <g transform="translate(34 4)">{{MEO_NGU}}</g>
+            <rect class="mt-than" x="18" y="58" width="164" height="182" rx="18"/>
+            <rect class="mt-man" x="32" y="72" width="136" height="40" rx="8"/>
+            <text class="mt-so" x="156" y="99" text-anchor="end">15.10.2026</text>
+            <g class="mt-phim">{{PHIM}}</g>
+          </svg>
+          <div class="goc-ke-toan-chu">
+            <p class="chu-thich">Cái máy tính này chắc chị bấm mòn cả phím rồi. Sổ sách của ai chị cũng
+              cân cho bằng được, chỉ có giờ nghỉ của chị là chưa cân bao giờ.</p>
+            <p class="chu-thich">Em bấm giùm chị một phép chưa tính lần nào: bốn năm cộng lại,
+              ra đúng một ngày — <strong>15/10/2026</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CẢNH 3 · KHÁCH QUEN ─────────────────────────────── -->
+  <section class="canh reveal" aria-labelledby="tieu-de-3">
+    <div class="khung">
+      <div class="the">
+        <p class="nhan">Cảnh ba</p>
+        <h2 id="tieu-de-3">Khách quen hôm nay</h2>
+        <p class="dan">Tiệm chị đông khách lắm, mà toàn khách nhỏ. Bạn nào ghé chị cũng nhớ tên,
+          nhớ luôn hôm trước mua gì. Hôm nay em xếp hàng cuối cùng.</p>
+
+        <ul class="hang-khach">
+{{KHACH}}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CẢNH 4 · HOÁ ĐƠN (chính là tấm thiệp mời) ───────── -->
+  <section class="canh reveal" aria-labelledby="tieu-de-4">
+    <div class="khung">
+      <div class="the">
+        <p class="nhan">Cảnh bốn</p>
+        <h2 id="tieu-de-4">Máy in hôm nay ra một tờ hơi lạ</h2>
+        <p class="dan">Chị giữ tờ này giùm em. Nó không tính tiền, nó chỉ ghi ngày giờ
+          và một chỗ ngồi mang tên chị.</p>
+
+        <div class="khoi-in">
+          <svg class="may-in" viewBox="0 0 300 96" role="img" aria-label="Máy in hoá đơn của tiệm đang nhả một tờ giấy">
+            <rect class="mi-than" x="20" y="16" width="260" height="64" rx="14"/>
+            <rect class="mi-nap" x="44" y="6" width="212" height="20" rx="9"/>
+            <rect class="mi-khe" x="70" y="66" width="160" height="10" rx="5"/>
+            <circle class="mi-den" cx="52" cy="46" r="5"/>
+            <circle class="mi-den mi-den-2" cx="70" cy="46" r="5"/>
+            <path class="mi-net" d="M110 40 h140 M110 52 h100"/>
+          </svg>
+
+          <!-- ▸ NGÀY GIỜ & ĐỊA ĐIỂM BUỔI LỄ nằm ngay dưới đây -->
+          <div class="hoa-don">
+            <div class="hd-giay">
+              <p class="hd-ten">TẠP HOÁ THY</p>
+              <p class="hd-dia">15 Hẻm Nhớ · Phường Bận Rộn</p>
+              <p class="hd-loai">HOÁ ĐƠN BÁN HÀNG</p>
+              <div class="hd-cat" aria-hidden="true"></div>
+
+              <div class="hd-hang"><span>Số hoá đơn</span><span>GRAD·26</span></div>
+              <div class="hd-hang"><span>Quầy</span><span>01</span></div>
+              <div class="hd-hang"><span>Ngày</span><span>Thứ Năm, 15/10/2026</span></div>
+              <div class="hd-cat" aria-hidden="true"></div>
+
+              <div class="hd-mon"><span class="hd-sl">1×</span><span class="hd-ten-mon">Tiệc chào mừng</span><span class="hd-gio">13:30 – 15:00</span></div>
+              <div class="hd-mon"><span class="hd-sl">1×</span><span class="hd-ten-mon">Ổn định chỗ ngồi</span><span class="hd-gio">15:30</span></div>
+              <div class="hd-mon"><span class="hd-sl">1×</span><span class="hd-ten-mon">Lễ tốt nghiệp</span><span class="hd-gio">Cử nhân</span></div>
+              <div class="hd-cat" aria-hidden="true"></div>
+
+              <p class="hd-nhan-nho">Địa điểm</p>
+              <p class="hd-dia-diem">Robert Blackwood Hall<br>Monash University - Clayton</p>
+              <div class="hd-hang"><span>Thành phố</span><span>Melbourne (MEL)</span></div>
+              <div class="hd-cat" aria-hidden="true"></div>
+
+              <div class="hd-hang hd-tong"><span>TỔNG CỘNG</span><span>1 lời mời</span></div>
+              <div class="hd-hang"><span>Khách trả</span><span>có mặt</span></div>
+              <div class="hd-hang"><span>Tiền thối</span><span>0 đồng</span></div>
+              <div class="hd-cat" aria-hidden="true"></div>
+
+              <div class="hd-hang"><span>Khách quen</span><span>chị Thy</span></div>
+              <div class="hd-vach" aria-hidden="true">{{MA_VACH}}</div>
+              <p class="hd-ma">16122000-TH-GRAD26</p>
+              <p class="hd-cam-on">CẢM ƠN CHỊ ĐÃ GHÉ TIỆM</p>
+              <p class="hd-ghi-chu">Hàng đã mời, xin phép không nhận trả lại.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LÁ THƯ RIÊNG ────────────────────────────────────── -->
+  <section class="canh reveal" aria-labelledby="tieu-de-thu">
+    <div class="khung">
+      <div class="the">
+        <p class="nhan">Vài dòng</p>
+        <h2 id="tieu-de-thu">Em gửi riêng chị</h2>
+
+        <div class="to-giay">
+          <span class="bang-dinh bd-trai" aria-hidden="true"></span>
+          <span class="bang-dinh bd-phai" aria-hidden="true"></span>
+
+          <!-- ✉️ VIẾT THƯ Ở ĐÂY ────────────────────────────────────────
+               Xoá cả đoạn <p> bên dưới rồi viết lời của bạn vào chỗ này.
+               Nhớ bỏ luôn chữ "placeholder" trong class thì chữ mới hết mờ.
+               ─────────────────────────────────────────────────────── -->
+          <p class="loi-thu placeholder">Chỗ này để dành cho lá thư thật — mấy dòng chị đọc xong
+            chắc sẽ cười, kiểu “con nhỏ này”. Viết vào đây nhé.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KẾT ─────────────────────────────────────────────── -->
+  <footer class="ket reveal">
+    <div class="khung">
+      <div class="bien-lat" aria-hidden="true">
+        <div class="bl-trong">
+          <div class="bl-mat bl-truoc"><p>ĐANG MỞ CỬA</p></div>
+          <div class="bl-mat bl-sau"><p>HÔM NAY NGHỈ NỬA BUỔI</p><p class="bl-phu">chủ tiệm đi dự lễ tốt nghiệp</p></div>
+        </div>
+      </div>
+      <p class="ket-loi">Chị nhớ ghi vào sổ giùm em một dòng nữa: <strong>15/10/2026</strong>.
+        Ngày đó tiệm cho phép nghỉ, khách quen chờ được — em thì chờ lâu rồi.</p>
+
+      <div class="goc-chuong">
+        <button type="button" id="nut-chuong" class="nut-chuong">Bấm chuông gọi chủ tiệm</button>
+        <svg class="chuong" id="chuong" viewBox="0 0 120 110" role="img" aria-label="Chiếc chuông nhỏ đặt trên quầy tiệm">
+          <g class="chuong-lac">
+            <path class="ch-than" d="M30 70 q0 -34 30 -34 q30 0 30 34 z"/>
+            <circle class="ch-num" cx="60" cy="32" r="6"/>
+            <rect class="ch-de" x="22" y="70" width="76" height="10" rx="5"/>
+          </g>
+          <path class="ch-song ch-song-t" d="M20 44 q-8 10 0 20"/>
+          <path class="ch-song ch-song-p" d="M100 44 q8 10 0 20"/>
+          <path class="ch-ban" d="M8 86 h104"/>
+        </svg>
+        <p class="loi-chu-tiem an" id="loi-chu-tiem">Chủ tiệm: “Có ngay! Chờ chị khoá cửa cái đã.”</p>
+      </div>
+
+      <p class="ket-ky">Thương chị nhiều,<br><span class="ky-ten">Em</span></p>
+    </div>
+  </footer>
+</main>
+
+<canvas id="roi" aria-hidden="true"></canvas>
+
+<!-- ══ MÀU SẮC & BỐ CỤC ══ -->
+<style>
+{{STYLE}}
+</style>
+
+<script>
+{{SCRIPT}}
+</script>
+
+<!-- Font chữ nhúng (rất dài) — ĐỪNG SỬA -->
+<style>
+{{FONTS}}
+</style>
+
+</body>
+</html>
