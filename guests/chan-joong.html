@@ -3,27 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thiệp mời tốt nghiệp</title>
+<title>Thư chúc · Tốt nghiệp &amp; 20/10</title>
 </head>
 <body>
 
 <!-- ════════════════════════════════════════════════════════════════
-     ✏️  CÁCH SỬA THIỆP NÀY  (guests/chan-joong.html)
+     ✏️  CÁCH SỬA THƯ NÀY  (guests/chan-joong.html)
+
+     · Trang này là THƯ CHÚC (tốt nghiệp + 20/10), không phải thiệp
+       mời — người nhận không đi dự lễ được.
 
      · Mọi câu chữ nằm ngay trong trang bên dưới — thấy chữ nào,
        sửa thẳng chữ đó, lưu file, mở lại trong trình duyệt là xong.
-     · Ngày sinh mở thiệp + mật khẩu câu hỏi bảo mật: sửa trong khối
+     · Ngày sinh mở thư + mật khẩu câu hỏi bảo mật: sửa trong khối
        CÀI ĐẶT ngay dưới đây.
      · Lá thư riêng: tìm chữ "✉️ VIẾT THƯ Ở ĐÂY" ở gần cuối phần nội dung.
        Thư đã viết rồi — sửa thẳng vào đó, xuống dòng bằng thẻ <br>.
-     · Ngày giờ buổi lễ: nằm trong tấm vé, tìm chữ "15/10/2026".
+     · Tấm vé mở (ngày / nơi đến): tìm chữ "Ngày nào cậu muốn".
+     · Lời chúc 20/10: tìm chữ "chuc-2010" ngay dưới lá thư.
      · Phần <style> và <script> phía dưới là máy móc — không cần đụng.
      · Khối font chữ ở CUỐI FILE rất dài — ĐỪNG SỬA khối đó.
      ════════════════════════════════════════════════════════════════ -->
 
 <script>
 /* ── CÀI ĐẶT ─────────────────────────────────────────────── */
-const NGAY_SINH = '18/02/2003';  // ngày sinh để mở thiệp (dd/mm/yyyy)
+const NGAY_SINH = '18/02/2003';  // ngày sinh để mở thư (dd/mm/yyyy)
 const TIM_ROI   = true;          // true = có trái tim rơi cùng cánh hoa
 const MAT_KHAU_BAO_MAT = '644472'; // mật khẩu câu hỏi bảo mật
 
@@ -38,13 +42,13 @@ const LOI_SAI_MAT_KHAU = 'Mật khẩu chưa đúng rồi — bạn thử lại 
 <canvas id="vuon" aria-hidden="true"></canvas>
 <div id="man-suong" aria-hidden="true"></div>
 
-<!-- ══ MÀN KHÓA — nhập ngày sinh để mở thiệp ══ -->
+<!-- ══ MÀN KHÓA — nhập ngày sinh để mở thư ══ -->
 <main id="gate">
   <div class="gate-card" id="gate-card">
     <span class="crest" aria-hidden="true"><span class="crest-chu">’26</span></span>
-    <p class="eyebrow">Lễ tốt nghiệp · 2026</p>
-    <h1>Thiệp mời ngày tốt nghiệp</h1>
-    <p class="gate-seal" id="gate-seal">Nhập ngày sinh của bạn để mở thiệp.</p>
+    <p class="eyebrow">Tốt nghiệp &amp; 20/10 · 2026</p>
+    <h1>Một lá thư gửi bạn</h1>
+    <p class="gate-seal" id="gate-seal">Nhập ngày sinh của bạn để mở thư.</p>
 
     <form class="gate-form" id="gate-form" novalidate>
       <label id="nhan-ngay-sinh">Ngày sinh</label>
@@ -144,7 +148,7 @@ const LOI_SAI_MAT_KHAU = 'Mật khẩu chưa đúng rồi — bạn thử lại 
           </div>
         </div>
       </div>
-      <button type="submit">Mở thiệp</button>
+      <button type="submit">Mở thư</button>
       <p id="gate-error" role="alert" aria-live="polite"></p>
     </form>
 
@@ -164,7 +168,7 @@ const LOI_SAI_MAT_KHAU = 'Mật khẩu chưa đúng rồi — bạn thử lại 
   </div>
 </main>
 
-<!-- ══ THIỆP — hiện ra sau khi mở khóa ══ -->
+<!-- ══ THƯ — hiện ra sau khi mở khóa ══ -->
 <main id="invite" hidden>
 
   <!-- Lời chào -->
@@ -204,17 +208,17 @@ const LOI_SAI_MAT_KHAU = 'Mật khẩu chưa đúng rồi — bạn thử lại 
       </g>
     </svg>
 
-    <p class="eyebrow">Thiệp mời tốt nghiệp</p>
+    <p class="eyebrow">Thư chúc · Tốt nghiệp &amp; 20/10</p>
     <h1 class="script">Gửi cậu</h1>
     <svg class="gach-tay" viewBox="0 0 260 20" aria-hidden="true">
       <path d="M6 13 C60 3 96 17 140 9 C182 2 220 12 254 7" fill="none"/>
     </svg>
     <p class="fullname">Phan Bảo Nghi · Chan Joong</p>
-    <p class="hero-line">Trong ngày quan trọng này, chỉ cần cậu có mặt là đã thật đặc biệt rồi.</p>
+    <p class="hero-line">Ngày quan trọng này của tớ, chỉ cần có lời chúc của cậu là đã thật đặc biệt rồi.</p>
   </header>
 
-  <!-- Vé mời kiểu boarding pass -->
-  <section class="pass-wrap reveal" aria-label="Vé mời">
+  <!-- Vé mở kiểu boarding pass (không có ngày giờ buổi lễ) -->
+  <section class="pass-wrap reveal" aria-label="Vé mở">
     <div class="pass" id="pass">
       <div class="pass-main">
         <div class="pass-header">
@@ -245,7 +249,7 @@ const LOI_SAI_MAT_KHAU = 'Mật khẩu chưa đúng rồi — bạn thử lại 
         <dl class="pass-grid">
           <div class="wide">
             <dt>Hành khách / Passenger</dt>
-            <dd class="passenger-name">PHAN BẢO NGHI “ZK IU”</dd>
+            <dd class="passenger-name">PHAN BẢO NGHI</dd>
           </div>
           <div>
             <dt>Chuyến bay / Flight</dt>
@@ -259,17 +263,13 @@ const LOI_SAI_MAT_KHAU = 'Mật khẩu chưa đúng rồi — bạn thử lại 
             <dt>Cổng / Gate</dt>
             <dd class="ma">Đặc biệt</dd>
           </div>
-          <div>
-            <dt>Ngày / Date</dt>
-            <dd>Thứ Năm, 15/10/2026</dd>
-          </div>
           <div class="wide">
-            <dt>Giờ / Time</dt>
-            <dd>Tiệc chào mừng 13:30 – 15:00 · Ổn định chỗ ngồi 15:30</dd>
+            <dt>Ngày / Date</dt>
+            <dd>Ngày nào cậu muốn</dd>
           </div>
           <div class="wide">
             <dt>Nơi đến / Destination</dt>
-            <dd>Robert Blackwood Hall — Monash University - Clayton</dd>
+            <dd>Melbourne</dd>
           </div>
         </dl>
       </div>
@@ -423,7 +423,7 @@ const LOI_SAI_MAT_KHAU = 'Mật khẩu chưa đúng rồi — bạn thử lại 
         </g>
       </svg>
     </div>
-    <p class="moment-cap">Tặng cậu 1 đóa hoa nhỏ xinh, tựa như vẻ đẹp của cậu.</p>
+    <p class="moment-cap">Tặng cậu 1 đóa hoa nhỏ xinh nhân ngày 20/10, tựa như vẻ đẹp của cậu.</p>
   </section>
 
   <!-- Cảnh 2: chuyến bay Tớ → Cậu (máy bay chạy theo lúc cuộn) -->
@@ -541,11 +541,13 @@ const LOI_SAI_MAT_KHAU = 'Mật khẩu chưa đúng rồi — bạn thử lại 
          Xuống dòng bằng thẻ <br>
          Xưng hô trong thư là cậu – tớ. -->
     <p class="letter-body">Gửi tặng cậu một lời cảm ơn, và một thứ tình cảm rất đặc biệt.<br><br>Cám ơn cậu vì đã là người đầu tiên gửi lời chúc tớ đi mạnh giỏi. Cám ơn cậu vì lun ở đó trò chuyện cùng tớ. Cám ơn cậu vì năm nào cũng là người đầu tiên chúc sn tớ, và vì tất cả những lời chúc tốt đẹp ấy. Khoảng thời gian bên Úc chắc chắn sẽ khó khăn hơn rất nhìu nếu thiếu cậu. Cám ơn cậu vì mọi thứ.<br><br>Hi vọng 1 ngày nào đó cậu với tớ trở nên “ phù hợp với nhau “ hơn 😌😌😌</p>
+    <!-- Lời chúc 20/10 (riêng, nằm ngoài lá thư) -->
+    <p class="chuc-2010">Chúc cậu 20/10 thật xinh, thật vui nha 💐</p>
   </section>
 
   <!-- Lời chào cuối -->
   <footer class="foot">
-    <p class="script">Một lời chúc là đã đủ, nhưng sẽ vui hơn nếu cậu make it there.</p>
+    <p class="script">Một lời chúc là đã đủ rồi.</p>
     <p class="tim-cuoi">❤</p>
   </footer>
 </main>
@@ -1130,6 +1132,12 @@ p:last-child { margin-bottom: 0; }
   max-width: 32rem; margin: 0 auto;
 }
 .letter-body.placeholder { font-style: italic; color: var(--ink-soft); }
+.chuc-2010 {
+  font-family: var(--script); font-weight: 700;
+  font-size: clamp(1.25rem, 5.4vw, 1.6rem);
+  line-height: 1.4; color: var(--accent);
+  margin: 1.6rem auto 0; max-width: 32rem;
+}
 .poem {
   display: block;
   margin: .2rem 0 0;

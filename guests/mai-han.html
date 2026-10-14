@@ -3,18 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thiệp mời Lễ Tốt nghiệp · Gửi Mai Hân</title>
+<title>Thư chúc tốt nghiệp &amp; 20/10 · Gửi Mai Hân</title>
 </head>
 <body class="khoa">
 
 <!-- ═══════════════════════════════════════════════════════════════════
-     ✏️  CÁCH SỬA TRANG THIỆP NÀY  (guests/mai-han.html)
+     ✏️  CÁCH SỬA TRANG THƯ NÀY  (guests/mai-han.html)
+
+     · Trang này là THƯ CHÚC (tốt nghiệp + 20/10), không phải thiệp
+       mời — Cá không đi dự lễ được.
 
      · Mọi câu chữ đều nằm thẳng trong phần nội dung bên dưới. Thấy chữ
        nào muốn đổi thì sửa ngay tại chỗ đó, lưu file, mở lại trình duyệt.
      · Ngày sinh để mở khoá: sửa NGAY_SINH trong khối CÀI ĐẶT ngay dưới.
      · Lá thư riêng: tìm dòng "✉️ VIẾT THƯ Ở ĐÂY" ở gần cuối phần nội dung.
-     · Ngày giờ & địa điểm buổi lễ: tìm mục "Thư mời chính thức".
+     · Lời chúc 20/10: tìm chữ "chuc-2010" ngay dưới lá thư.
      · Khối giao diện và khối hoạt động ở phía dưới là phần máy móc.
      · Ba tấm ảnh (2 meme mèo + ảnh động nhảy múa) nằm trong khối
        "ẢNH NHÚNG" ở cuối file. Muốn đổi ảnh khác thì bỏ ảnh mới vào
@@ -25,8 +28,8 @@
 
 <script>
 /* ── CÀI ĐẶT ────────────────────────────────────────────────────── */
-const NGAY_SINH = '16/09/2003';   // ngày sinh để mở thiệp (dd/mm/yyyy)
-const GIAY_ROI  = true;           // rắc giấy hồng khi mở thiệp
+const NGAY_SINH = '16/09/2003';   // ngày sinh để mở thư (dd/mm/yyyy)
+const GIAY_ROI  = true;           // rắc giấy hồng khi mở thư
 
 // Lời báo lỗi ở màn khoá:
 const LOI_CHUA_DU  = 'Bạn nhập đủ ngày · tháng · năm giúp mình nhé (dd/mm/yyyy).';
@@ -60,14 +63,14 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
       <text x="16" y="26" class="gate-tem-chu">GRAD · 26</text>
     </svg>
 
-    <p class="gate-eyebrow">Lễ tốt nghiệp · Monash University</p>
-    <h1 class="gate-title">Thiệp mời<br>tốt nghiệp</h1>
-    <p class="gate-note" id="gate-note">Tấm thiệp này được gửi riêng cho một người.<br>Bạn nhập ngày sinh của mình để mở nhé.</p>
+    <p class="gate-eyebrow">Thư chúc · Tốt nghiệp &amp; 20/10</p>
+    <h1 class="gate-title">Một lá thư<br>gửi bạn</h1>
+    <p class="gate-note" id="gate-note">Lá thư này được gửi riêng cho một người.<br>Bạn nhập ngày sinh của mình để mở nhé.</p>
 
     <form id="gate-form" novalidate>
       <label class="gate-label" for="dob">Ngày sinh của bạn</label>
       <input id="dob" inputmode="numeric" autocomplete="off" placeholder="dd/mm/yyyy" maxlength="10">
-      <button type="submit" class="nut">Mở thiệp</button>
+      <button type="submit" class="nut">Mở thư</button>
     </form>
 
     <!-- Chế độ "thư dành riêng": chỉ hiện khi vào từ letter.html với ?m= đúng -->
@@ -81,13 +84,13 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
 </div>
 
 
-<!-- ══════════ NỘI DUNG THIỆP (hiện sau khi mở khoá) ══════════ -->
+<!-- ══════════ NỘI DUNG THƯ (hiện sau khi mở khoá) ══════════ -->
 <main id="invite" hidden>
 
   <!-- ── Bìa sổ tem ── -->
-  <header class="bia reveal" aria-label="Bìa thiệp">
+  <header class="bia reveal" aria-label="Bìa sổ tem">
     <p class="kicker">Sổ tem kỷ niệm · Số 01</p>
-    <h1 class="bia-title">Thiệp mời<br><em>Lễ Tốt Nghiệp</em></h1>
+    <h1 class="bia-title">Thư chúc<br><em>Tốt nghiệp &amp; 20/10</em></h1>
     <div class="bia-vach" aria-hidden="true">
       <svg viewBox="0 0 240 14" preserveAspectRatio="none"><path d="M0 8 q15 -7 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
     </div>
@@ -98,7 +101,7 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
       <defs><path id="vong-bia" d="M60 60 m -44 0 a 44 44 0 1 1 88 0 a 44 44 0 1 1 -88 0"/></defs>
       <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width="2.4" opacity=".85"/>
       <circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
-      <text class="dau-chu"><textPath href="#vong-bia" startOffset="50%" text-anchor="middle">MELBOURNE ★ MONASH ★</textPath></text>
+      <text class="dau-chu"><textPath href="#vong-bia" startOffset="50%" text-anchor="middle">MELBOURNE ★ 20·10 ★</textPath></text>
       <text class="dau-tam" x="60" y="58" text-anchor="middle">2026</text>
       <text class="dau-nho" x="60" y="72" text-anchor="middle">GRAD · 26</text>
     </svg>
@@ -107,7 +110,7 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
   <!-- ── Lời mở ── -->
   <section class="doan reveal" aria-label="Lời mở đầu">
     <p class="mo-dau">Có những chuyện nhắn một cái là xong. Chuyện này thì không.</p>
-    <p>Nên mình dán nó lại thành một cuốn sổ tem nhỏ, mỗi con tem là một mẩu về Cá. Cuộn xuống từ từ thôi, tem cuối cùng mới là lời mời thật.</p>
+    <p>Nên mình dán nó lại thành một cuốn sổ tem nhỏ, mỗi con tem là một mẩu về Cá. Cuộn xuống từ từ thôi, cuối sổ có một lá thư thật.</p>
   </section>
 
   <!-- ── TEM 01 · Cá bơi ── -->
@@ -332,13 +335,13 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
     </div>
   </section>
 
-  <!-- ── TEM 04 · Thư bay SGN → MEL ── -->
-  <section class="khoi reveal" aria-label="Tem thứ tư, lá thư bay từ Sài Gòn tới Melbourne">
+  <!-- ── TEM 04 · Thư gửi về MEL → SGN ── -->
+  <section class="khoi reveal" aria-label="Tem thứ tư, lá thư bay từ Melbourne về Sài Gòn">
     <div class="tem tem-hangkhong">
       <p class="tem-so">Tem 04</p>
       <div class="vien-hangkhong">
         <div class="trong-hangkhong">
-          <svg class="canh canh-bay" viewBox="0 0 320 190" role="img" aria-label="Đường bay nét đứt từ SGN tới MEL, một lá thư nhỏ bay theo">
+          <svg class="canh canh-bay" viewBox="0 0 320 190" role="img" aria-label="Đường bay nét đứt từ MEL về SGN, một lá thư nhỏ bay theo, chiếc mũ tốt nghiệp nằm ở đầu Melbourne">
             <g class="may" fill="#F3DDE2" opacity=".85">
               <ellipse class="m1" cx="70" cy="52" rx="30" ry="11"/>
               <ellipse class="m2" cx="248" cy="150" rx="34" ry="12"/>
@@ -354,12 +357,12 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
             <g class="ga">
               <circle cx="40" cy="138" r="7" fill="#FFFAF8" stroke="#5C2743" stroke-width="2.6"/>
               <circle cx="40" cy="138" r="2.6" fill="#5C2743"/>
-              <text class="ga-chu" x="40" y="164" text-anchor="middle">SGN</text>
+              <text class="ga-chu" x="40" y="164" text-anchor="middle">MEL</text>
               <circle cx="280" cy="118" r="7" fill="#FFFAF8" stroke="#5C2743" stroke-width="2.6"/>
               <circle cx="280" cy="118" r="2.6" fill="#5C2743"/>
-              <text class="ga-chu" x="280" y="144" text-anchor="middle">MEL</text>
+              <text class="ga-chu" x="280" y="144" text-anchor="middle">SGN</text>
             </g>
-            <g transform="translate(272,74) scale(.72)">
+            <g transform="translate(32,98) scale(.72)">
               <path d="M-34 6 L0 -10 L34 6 L0 22 Z" fill="#5C2743"/>
               <path d="M-16 14 v10 q16 9 32 0 v-10" fill="#7A3557"/>
             </g>
@@ -368,47 +371,9 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
         </div>
       </div>
       <div class="tem-loi">
-        <h2>Đường bay ngắn nhất là một lời mời</h2>
-        <p>Từ Sài Gòn tới đây là một chuyến bay dài thật, mình biết. Nên coi con tem này là lời mời chính thức: nếu Cá bay được thì ghế bên cạnh mình là của Cá, còn nếu không bay được thì mình quay hết về, kể lại từng đoạn một, không sót đoạn nào.</p>
+        <h2>Lần này thư bay về phía Cá</h2>
+        <p>Từ đây về Sài Gòn là một chuyến bay dài thật, nên lần này để lá thư bay thay: con tem này cất cánh từ Melbourne, mang cái mũ tốt nghiệp về tới tay Cá. Phần còn lại để dành bữa nào gặp nhau, mình kể từng đoạn một, không sót đoạn nào.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ── Thư mời chính thức: ngày giờ & địa điểm ── -->
-  <section class="khoi reveal" aria-label="Thông tin buổi lễ">
-    <div class="phieu">
-      <div class="phieu-dau">
-        <p class="kicker">Thư mời chính thức</p>
-        <h2 class="phieu-title">Lễ Tốt nghiệp</h2>
-      </div>
-
-      <dl class="phieu-bang">
-        <div class="hang">
-          <dt>Ngày</dt>
-          <dd>Thứ Năm, 15/10/2026</dd>
-        </div>
-        <div class="hang">
-          <dt>Tiệc chào mừng</dt>
-          <dd>13:30 – 15:00</dd>
-        </div>
-        <div class="hang">
-          <dt>Ổn định chỗ ngồi</dt>
-          <dd>15:30</dd>
-        </div>
-        <div class="hang">
-          <dt>Địa điểm</dt>
-          <dd>Robert Blackwood Hall<br>Monash University – Clayton, Melbourne</dd>
-        </div>
-      </dl>
-
-      <svg class="dau-phieu" viewBox="0 0 120 120" role="img" aria-label="Dấu bưu điện ngày 15 tháng 10 năm 2026">
-        <defs><path id="vong-phieu" d="M60 60 m -44 0 a 44 44 0 1 1 88 0 a 44 44 0 1 1 -88 0"/></defs>
-        <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width="2.4"/>
-        <circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".6"/>
-        <text class="dau-chu"><textPath href="#vong-phieu" startOffset="50%" text-anchor="middle">ROBERT BLACKWOOD HALL ★</textPath></text>
-        <text class="dau-tam" x="60" y="58" text-anchor="middle">15·10</text>
-        <text class="dau-nho" x="60" y="72" text-anchor="middle">2026</text>
-      </svg>
     </div>
   </section>
 
@@ -425,6 +390,9 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
            vào đoạn dưới. Xuống dòng bằng thẻ <br>, cách đoạn bằng <br><br>. -->
       <p class="thu-that">Hello lâu qá hok gặp, m k qua đc nên 1 lời chúc là đẹp gòii, bữa nào gặp lại đi kakaka.</p>
 
+      <!-- Lời chúc 20/10 (riêng, nằm ngoài lá thư) -->
+      <p class="chuc-2010">Chúc Cá 20/10 vui như cá gặp nước — và lúc nào cũng có meme mèo mới để gửi 🌷</p>
+
       <p class="ky-ten">Melbourne · 2026</p>
     </div>
   </section>
@@ -434,7 +402,7 @@ const LOI_SAI      = 'Chưa khớp rồi. Bạn thử lại đúng ngày sinh c�
     <div class="ket-vach" aria-hidden="true">
       <svg viewBox="0 0 240 14" preserveAspectRatio="none"><path d="M0 8 q15 -7 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
     </div>
-    <p class="ket-loi">Hẹn gặp Cá — ở Robert Blackwood Hall, hoặc ở một cuộc gọi lúc nửa đêm cũng được.</p>
+    <p class="ket-loi">Hẹn gặp Cá — bữa nào đó, hoặc ở một cuộc gọi lúc nửa đêm cũng được.</p>
     <p class="ket-nho">Sổ tem này chỉ in đúng một bản.</p>
   </footer>
 
@@ -805,6 +773,12 @@ em{ font-style: italic; }
   border-left: 3px solid var(--hong);
   padding-left: 1rem;
 }
+.chuc-2010{
+  font-family: var(--chu-tieu); font-weight: 600; font-style: italic;
+  font-size: clamp(1.05rem, 4.4vw, 1.2rem); line-height: 1.5;
+  color: var(--hong-sau); margin-top: 1.4rem;
+  padding-top: 1rem; border-top: 1.5px dashed rgba(92,39,67,.18);
+}
 .ky-ten{
   text-align: right !important;
   font-family: var(--chu-tieu); font-weight: 600; font-style: italic;
@@ -938,7 +912,7 @@ em{ font-style: italic; }
 @media (max-width: 30rem){
   .hang{ grid-template-columns: 1fr; gap: .15rem; padding: .8rem 0; }
   .hang dt{ padding-top: 0; }
-  .dau-bia{ bottom: .1rem; right: -.8rem; opacity: .4; }
+  .dau-bia{ bottom: .1rem; right: -.6rem; opacity: .4; }
   .dau-phieu{ right: -1.2rem; bottom: -1.4rem; }
   .tem-loi{ padding-left: .1rem; padding-right: .1rem; }
   .placeholder{ padding-left: .8rem; }
