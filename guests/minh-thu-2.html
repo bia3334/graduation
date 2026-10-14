@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thiệp mời Lễ Tốt nghiệp — Gửi Minh Thư</title>
+<title>Thư chúc tốt nghiệp &amp; 20/10 — Gửi Minh Thư</title>
 </head>
 <body>
 
 <!-- ════════════════════════════════════════════════════════════════
-     ✏️  CÁCH SỬA TẤM THIỆP NÀY  (trang riêng của Minh Thư)
+     ✏️  CÁCH SỬA LÁ THƯ NÀY  (trang riêng của Minh Thư)
+     · Trang này là THƯ CHÚC (tốt nghiệp + 20/10), không phải thiệp
+       mời — Thư không đi dự lễ được.
      · Chủ đề: "Sổ tay dữ liệu" — giấy hồng pastel, mực mận đậm,
        toàn hình vẽ toán học và biểu đồ.
      · Mọi câu chữ nằm thẳng trong phần nội dung bên dưới. Thấy chữ nào
@@ -16,7 +18,7 @@
      · Ngày sinh mở khoá: sửa NGAY_SINH trong khối CÀI ĐẶT ngay bên dưới.
      · Lá thư riêng: tìm dòng "✉️ VIẾT THƯ Ở ĐÂY" ở gần cuối nội dung,
        thay đoạn văn ở đó rồi xoá chữ  placeholder  trong class là xong.
-     · Ngày giờ, địa điểm: xem mục "Thông số buổi lễ".
+     · Lời chúc 20/10: tìm chữ "chuc-2010" ngay dưới lá thư.
      · Cuối file có hai khối rất dài: khối giao diện và khối font chữ
        (ghi rõ ĐỪNG SỬA). Không cần đụng tới hai khối đó.
      ════════════════════════════════════════════════════════════════ -->
@@ -24,7 +26,7 @@
 <script>
 /* ── CÀI ĐẶT ─────────────────────────────────────────────── */
 const NGAY_SINH = '31/05/2003';   // mã mở khoá (dd/mm/yyyy)
-const MUA_HAT   = true;           // bật/tắt mưa hạt dữ liệu lúc mở thiệp
+const MUA_HAT   = true;           // bật/tắt mưa hạt dữ liệu lúc mở thư
 
 // Lời báo lỗi ở màn khoá
 const LOI_CHUA_DU  = 'Bạn nhập chưa đủ ngày sinh (dd/mm/yyyy) rồi.';
@@ -57,16 +59,16 @@ const LOI_SAI      = 'Chưa khớp. Bạn thử lại nhé — đúng ngày sinh
       <circle class="vong-khoa" cx="100" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
     </svg>
 
-    <p class="nhan-nho">Lễ tốt nghiệp · Niên khoá 2026</p>
-    <h1 class="tieu-khoa">Thiệp mời<br>lễ tốt nghiệp</h1>
-    <p class="mo-ta-khoa">Tấm thiệp này được viết riêng cho một người.<br>Nó chỉ mở ra với đúng một ngày trong năm.</p>
+    <p class="nhan-nho">Thư chúc · Tốt nghiệp &amp; 20/10</p>
+    <h1 class="tieu-khoa">Một lá thư<br>gửi bạn</h1>
+    <p class="mo-ta-khoa">Lá thư này được viết riêng cho một người.<br>Nó chỉ mở ra với đúng một ngày trong năm.</p>
 
-    <p class="huong-dan" id="gate-huong-dan">Mời bạn nhập ngày sinh của bạn để mở thiệp.</p>
+    <p class="huong-dan" id="gate-huong-dan">Bạn nhập ngày sinh của mình để mở thư nhé.</p>
 
     <form id="gate-form" novalidate>
       <label class="nhan-o" for="dob">Ngày sinh của bạn</label>
       <input id="dob" inputmode="numeric" autocomplete="off" placeholder="dd/mm/yyyy" maxlength="10">
-      <button type="submit">Mở thiệp</button>
+      <button type="submit">Mở thư</button>
     </form>
 
     <!-- Chế độ "thư dành riêng" — chỉ hiện khi vào từ letter.html với ?m= đúng -->
@@ -79,7 +81,7 @@ const LOI_SAI      = 'Chưa khớp. Bạn thử lại nhé — đúng ngày sinh
   </div>
 </div>
 
-<!-- ══ NỘI DUNG THIỆP (hiện sau khi mở khoá) ══ -->
+<!-- ══ NỘI DUNG THƯ (hiện sau khi mở khoá) ══ -->
 <main id="invite" hidden>
 
   <!-- ── Trang bìa ─────────────────────────────────────── -->
@@ -240,15 +242,15 @@ const LOI_SAI      = 'Chưa khớp. Bạn thử lại nhé — đúng ngày sinh
   </section>
 
   <!-- ── Bảng 03 · Phân phối xác suất ───────────────────── -->
-  <section class="qs reveal" aria-label="Bảng 03 — Xác suất bạn có mặt">
+  <section class="qs reveal" aria-label="Bảng 03 — Xác suất tụi mình gặp lại">
     <div class="wrap">
       <p class="nhan-nho hien">Bảng 03</p>
-      <h2 class="hien">Xác suất bạn có mặt</h2>
-      <p class="hien">Mình có chạy thử một mô hình nhỏ. Đầu vào gồm: quãng đường, chênh lệch múi giờ, và cái tính không bao giờ chịu bỏ lỡ chuyện vui của bạn. Kết quả trả về dồn hẳn về mé phải, gần như đụng trần.</p>
+      <h2 class="hien">Xác suất tụi mình gặp lại</h2>
+      <p class="hien">Mình có chạy thử một mô hình nhỏ. Đầu vào gồm: quãng đường, chênh lệch múi giờ, và một lời hẹn có chữ “Bosch” trong đó. Kết quả không ra con số tròn, nhưng đỉnh của nó nằm ở một ngày gần thôi.</p>
 
       <figure class="khung">
         <svg class="phan-phoi" viewBox="0 0 640 320" role="img"
-             aria-label="Đường phân phối xác suất với đỉnh nằm lệch hẳn về phía một trăm phần trăm">
+             aria-label="Đường phân phối xác suất theo thời gian, đỉnh nằm ở một ngày gần thôi">
           <defs>
             <linearGradient id="nen-chuong" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#A8134E" stop-opacity=".26"/>
@@ -275,15 +277,15 @@ const LOI_SAI      = 'Chưa khớp. Bạn thử lại nhé — đúng ngày sinh
                 stroke="#A8134E" stroke-width="1.4" stroke-dasharray="5 7" stroke-opacity=".8"/>
           <circle class="nhip" cx="430" cy="84" r="16" fill="#A8134E" fill-opacity=".18"/>
           <circle class="cham" cx="430" cy="84" r="5.5" fill="#A8134E"/>
-          <text class="chu-svg hp dam" x="430" y="62" text-anchor="middle">99,9%</text>
+          <text class="chu-svg hp dam" x="430" y="62" text-anchor="middle">một ngày gần thôi</text>
 
           <line x1="56" y1="250" x2="628" y2="250" stroke="#4A2233" stroke-opacity=".45" stroke-width="1.2"/>
           <g class="chu-svg mo">
-            <text x="56" y="278">0%</text>
-            <text x="628" y="278" text-anchor="end">100%</text>
+            <text x="56" y="278">hôm nay</text>
+            <text x="628" y="278" text-anchor="end">mai mốt</text>
           </g>
         </svg>
-        <figcaption>Trục ngang: khả năng bạn có mặt hôm đó. Trục dọc: mức tin tưởng của mình. Phần 0,1% còn lại xin dành cho chuyện kẹt xe.</figcaption>
+        <figcaption>Trục ngang: thời gian tính từ hôm nay. Trục dọc: khả năng tụi mình ngồi lại chung một bàn. Cái đuôi bên phải xin dành cho chuyện kẹt xe.</figcaption>
       </figure>
     </div>
   </section>
@@ -298,65 +300,12 @@ const LOI_SAI      = 'Chưa khớp. Bạn thử lại nhé — đúng ngày sinh
         <!-- ✉️ VIẾT THƯ Ở ĐÂY — thư đã viết rồi, muốn đổi chữ nào thì sửa thẳng
              vào đoạn dưới. LƯU Ý: đoạn này phải nằm trên MỘT dòng (trang tự
              ngắt dòng theo xuống dòng trong mã), cách đoạn bằng <br><br>. -->
-        <p class="thu">Thư ơi,<br><br>Mình biết Thư giỏi, giỏi tới mức mình không cần chúc chuyện học hay chuyện làm — mấy cái đó Thư tự lo được hết.<br><br>Nên mình chúc chuyện quan trọng hơn: chúc Thư mãi có xiền để đu concert idol, đi đâu cũng đi được, mua gì cũng mua được, không phải nhìn giá vé rồi thở dài. Idol comeback là có mặt, fan meeting là có vé, lightstick lúc nào cũng đầy pin. Vui kiểu đó thì cứ vui hoài, không cần ai cho phép.<br><br>Và mong Thư giữ cái nhiệt đó cho cả những thứ khác trong đời — thích gì thì thích thật lòng, đã đi thì đi cho hết đường.<br><br>Hôm 15/10 mình cũng có một buổi "concert" nhỏ, vé đã để sẵn tên Thư rồi. Cứ tới thôi, khỏi cần đu.</p>
+        <p class="thu">Hellu, cám ơn mom vì cho mấy câu hỏi đoán đâu trúng đó nha kkk, đợt này k qa Úc được gửi lời chúc đc gòii, nào đậu Bosch gặp lại nhau ăn ún nhóoo. Chúc cho tình iu sớm thành hiện thực kk.</p>
 
         <p class="ky-ten">Thân mến,<br><span>Người bạn của Thư</span></p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── Thông số buổi lễ ───────────────────────────────── -->
-  <section class="qs reveal" aria-label="Thông số buổi lễ">
-    <div class="wrap">
-      <p class="nhan-nho hien">Điểm dữ liệu cuối</p>
-      <h2 class="hien">Thông số buổi lễ</h2>
-      <p class="hien">Cả bản phân tích này rút lại còn đúng một điểm, đã được đánh dấu sẵn trên mặt phẳng. Bạn chỉ cần khớp mình vào đúng ngày giờ bên dưới.</p>
-
-      <div class="the-toa-do khung">
-        <div class="diem-danh-dau">
-          <svg viewBox="0 0 200 200" role="img" aria-label="Mặt phẳng toạ độ với một điểm được khoanh tròn và đánh dấu">
-            <g stroke="#A8134E" stroke-opacity=".13" stroke-width="1">
-              <line x1="20" y1="50" x2="192" y2="50"/>
-              <line x1="20" y1="94" x2="192" y2="94"/>
-              <line x1="20" y1="138" x2="192" y2="138"/>
-              <line x1="64" y1="8" x2="64" y2="180"/>
-              <line x1="108" y1="8" x2="108" y2="180"/>
-              <line x1="152" y1="8" x2="152" y2="180"/>
-            </g>
-            <g fill="#4A2233" fill-opacity=".3">
-              <circle cx="48" cy="150" r="3.4"/><circle cx="86" cy="118" r="3.4"/>
-              <circle cx="120" cy="132" r="3.4"/><circle cx="164" cy="106" r="3.4"/>
-            </g>
-            <g class="chi-huong" stroke="#A8134E" stroke-width="1.4" stroke-dasharray="4 6" stroke-opacity=".8">
-              <line x1="20" y1="72" x2="136" y2="72"/>
-              <line x1="136" y1="72" x2="136" y2="180"/>
-            </g>
-            <line x1="20" y1="180" x2="192" y2="180" stroke="#4A2233" stroke-opacity=".45" stroke-width="1.4"/>
-            <line x1="20" y1="8" x2="20" y2="180" stroke="#4A2233" stroke-opacity=".45" stroke-width="1.4"/>
-            <circle class="nhip" cx="136" cy="72" r="18" fill="#A8134E" fill-opacity=".18"/>
-            <circle class="cham" cx="136" cy="72" r="6" fill="#A8134E"/>
-          </svg>
-          <p class="ma-diem">MEL</p>
-        </div>
-
-        <dl class="bang-tin">
-          <div class="dong">
-            <dt>Ngày</dt>
-            <dd>Thứ Năm, <strong>15/10/2026</strong></dd>
-          </div>
-          <div class="dong">
-            <dt>Tiệc chào mừng</dt>
-            <dd><strong>13:30 – 15:00</strong></dd>
-          </div>
-          <div class="dong">
-            <dt>Ổn định chỗ ngồi</dt>
-            <dd><strong>15:30</strong></dd>
-          </div>
-          <div class="dong">
-            <dt>Địa điểm</dt>
-            <dd>Robert Blackwood Hall<br><span class="phu">Monash University – Clayton, Melbourne</span></dd>
-          </div>
-        </dl>
+        <!-- Lời chúc 20/10 (riêng, nằm ngoài lá thư) -->
+        <p class="chuc-2010">Chúc Thư 20/10 thật vui: <span class="ct">vui(t) &gt; 0, ∀t</span> — tức là vui mọi ngày, không chỉ hôm nay 🌸</p>
       </div>
     </div>
   </section>
@@ -376,8 +325,8 @@ const LOI_SAI      = 'Chưa khớp. Bạn thử lại nhé — đúng ngày sinh
         <circle class="tho" cx="112" cy="66" r="4" fill="#A8134E"/>
       </svg>
       <p class="cong-thuc hien">Σ (bốn năm) = một tấm bằng</p>
-      <p class="loi-ket hien">Hẹn gặp bạn ở Melbourne, ngày mà mọi con số đều tròn.</p>
-      <p class="nho hien">Thiệp mời lễ tốt nghiệp · 15/10/2026</p>
+      <p class="loi-ket hien">Hẹn gặp lại bạn, vào một ngày mà mọi con số đều tròn.</p>
+      <p class="nho hien">Thư chúc · Tốt nghiệp &amp; 20/10</p>
     </div>
   </footer>
 
@@ -624,6 +573,8 @@ button:active{ transform:translateY(0); }
 .thu.placeholder{ font-style:italic; color:var(--muc-3); }
 .ky-ten{ margin:0; text-align:right; font-size:.92rem; color:var(--muc-3); }
 .ky-ten span{ font-family:var(--f-tieu); font-size:1.2rem; color:var(--hong-2); }
+.chuc-2010{ margin:var(--k3) 0 0; padding-top:var(--k2); border-top:1px dashed var(--vien-2); font-family:var(--f-tieu); font-size:1.08rem; line-height:1.6; color:var(--hong-2); }
+.chuc-2010 .ct{ font-family:var(--f-so); font-size:.86em; white-space:nowrap; background:var(--hong-nhat); border-radius:6px; padding:.05em .4em; color:var(--muc); }
 
 /* ── thông số ── */
 .the-toa-do{ display:grid; grid-template-columns:minmax(0,160px) minmax(0,1fr); gap:clamp(1rem,3.5vw,2rem); align-items:center; }
