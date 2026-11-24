@@ -37,7 +37,7 @@ const template = `<!doctype html>
 /* ── CÀI ĐẶT ─────────────────────────────────────────────── */
 // Danh sách ngày sinh của khách mời thiết kế riêng (để chặn không cho vào trang chung)
 const CHAN_DANH_SACH = [
-  '18022003', // chan-joong.html
+  '18022003', // Nghi — đã gỡ thư (2026-11-24), chặn luôn không cho vào trang chung
   '05122003', // minh-thu.html
   '30101975', // me.html
   '01011973'  // ba.html
